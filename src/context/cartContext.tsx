@@ -6,7 +6,7 @@ interface CartItem {
     quantity: number;
 }
 
-interface CartContextType  {
+export interface CartContextType  {
     items: CartItem[];
     getProductQuantity: (id: number) => number;
     addItemToCart: (id: number) => void;

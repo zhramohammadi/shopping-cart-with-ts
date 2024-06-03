@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Navbar as NavbarBs, Button, Modal } from 'react-bootstrap';
@@ -7,7 +7,7 @@ import { FaHome } from "react-icons/fa";
 import {CartContext,CartContextType} from '../context/cartContext'
 import CartProduct from './cartProduct'
 
-const Navbar: React.FC = () => {
+function Navbar() {
   const [showModal, setShowModal] = useState(false);
   const [showError, setShowError] = useState(false);
   const cart = useContext(CartContext) as CartContextType;
@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
     navigate('/');
   }
 
-  const productCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
+  const productCount = cart.items.reduce((sum: any, product: any) => sum + product.quantity, 0);
 
   const handleShow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
